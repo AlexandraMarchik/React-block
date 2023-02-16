@@ -1,0 +1,30 @@
+@import 'src/assets/colors';
+
+
+.container{
+  display: flex;
+  gap: 80px;
+  border-bottom: 1px solid $medium;
+}
+.tab{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 40px 24px;
+  color: $secondary;
+  &:hover{
+    color: $primary;
+    cursor: pointer;
+
+  }
+}
+.activeTab{
+  border-bottom: 2px solid $secondary;
+}
+.disabled{
+  color:$grey ;
+  &:hover{
+    cursor: not-allowed;
+    color: $grey;
+  }
+}

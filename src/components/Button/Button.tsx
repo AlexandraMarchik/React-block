@@ -7,6 +7,7 @@ export enum ButtonType {
   Primary = "Primary",
   Secondary = "Secondary",
   Error = "Error",
+
 }
 type ButtonProps = {
   title: string | ReactNode;
@@ -20,6 +21,8 @@ const btnStyles = {
   [ButtonType.Primary]: styles.primaryButton,
   [ButtonType.Secondary]: styles.secondaryButton,
   [ButtonType.Error]: styles.errorButton,
+
+
 };
 const Button: FC<ButtonProps> = ({ title, onClick, type, disabled,className }) => {
   const buttonClassName = btnStyles[type];
