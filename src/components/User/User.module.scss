@@ -1,0 +1,22 @@
+@import "src/assets/colors";
+@import "src/assets/mixins";
+.userBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  background-color: $primary;
+}
+.user {
+  @include user();
+  line-height: 34px;
+  padding: 16px 20px;
+}
+.userLetter {
+  @include user();
+  background-color: $primary-secondary;
+  padding: 10px 9px;
+  margin-left: 16px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
