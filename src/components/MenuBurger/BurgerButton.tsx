@@ -2,27 +2,18 @@ import React, { useState } from "react";
 import styles from "./BurgerButton.module.scss";
 import Button from "../Button";
 import { ButtonType } from "../Button/Button";
-import {CloseIcon, OpenedMenu } from "../../assets/icons";
-
-enum ButtonState {
-  Opened,
-  Closed,
-}
+import { CloseIcon, OpenedMenu } from "../../assets/icons";
 
 const MenuBurger = () => {
-  const [activeButton, setActiveBtn] = useState(ButtonState.Opened);
+  const [isOpened, setOpened] = useState(false);
   const onButtonClick = () => {
-    return ButtonState.Opened === activeButton
-      ? setActiveBtn(ButtonState.Closed)
-      : setActiveBtn(ButtonState.Opened);
+    return setOpened(!isOpened);
   };
   return (
     <Button
       className={styles.btn}
       type={ButtonType.Primary}
-      title={
-        (activeButton === ButtonState.Opened ? <OpenedMenu/>:<CloseIcon />)
-      }
+      title={!isOpened ? <OpenedMenu /> : <CloseIcon />}
       onClick={onButtonClick}
     />
   );
