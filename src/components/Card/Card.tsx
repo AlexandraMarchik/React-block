@@ -43,7 +43,7 @@ const Card: FC<CardProps> = ({ card, size }) => {
         <img
           src={image}
           className={classNames(styles.image, {
-            [styles.imageMedium]: isMedium,
+            [styles.mediumImage]: isMedium,
             [styles.smallImage]: isSmall,
           })}
         />
