@@ -190,7 +190,8 @@ const MOCK_PAGE = {
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState(TabsNames.ALL);
-  const onTabClick = (key: TabsNames) => () => setActiveTab(key);
+  const onTabClick = (key: TabsNames) => setActiveTab(key);
+
 
   const [cardsList, setCardsList] = useState<CardType[]>([]);
   useEffect(() => {

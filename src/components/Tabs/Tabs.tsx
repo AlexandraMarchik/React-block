@@ -1,9 +1,10 @@
 import React, { FC, MouseEventHandler, useState } from "react";
 import styles from "./Tabs.module.scss";
 import classNames from "classnames";
-import { TabsProps } from "./type";
+import {TabsNames, TabsProps} from "./type";
 
 const Tabs: FC<TabsProps> = ({ tabsList, activeTab, onClick }) => {
+  const onTabClick = (key: TabsNames) => () => onClick(key);
   return (
     <div className={styles.container}>
       {tabsList.map((tab) => {
@@ -14,7 +15,7 @@ const Tabs: FC<TabsProps> = ({ tabsList, activeTab, onClick }) => {
               [styles.activeTab]: activeTab === tab.key,
               [styles.disabled]: tab.disabled,
             })}
-            onClick={tab.disabled ? undefined : onClick(tab.key)}
+            onClick={tab.disabled ? undefined : onTabClick(tab.key)}
           >
             {tab.title}
           </div>
