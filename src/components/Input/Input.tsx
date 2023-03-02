@@ -1,6 +1,7 @@
-import React, {ChangeEvent, FC, useState} from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import classNames from "classnames";
 import styles from "./Input.module.scss";
+import { Theme, useThemeContext } from "../../context/Theme/Context";
 
 type InputProps = {
   value: string;
@@ -9,17 +10,34 @@ type InputProps = {
   placeholder: string;
   disabled?: boolean;
   errorText?: string;
-};
-const Input: FC<InputProps> = ({ value, onChange, title, placeholder, disabled, errorText }) => {
-
+  type: string;
+ };
+const Input: FC<InputProps> = ({
+  type,
+  value,
+  title,
+  placeholder,
+  disabled,
+  errorText,
+   onChange,
+}) => {
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+
+      onChange(e.target.value)
   };
+  const { theme } = useThemeContext();
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{title}</div>
+      <div
+        className={classNames(styles.title, {
+          [styles.darkTitle]: theme === Theme.Dark,
+        })}
+      >
+        {title}
+      </div>
       <input
+        type={type}
         value={value}
         className={classNames(styles.input, {
           [styles.disabled]: disabled,

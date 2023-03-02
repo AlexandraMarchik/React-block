@@ -1,7 +1,7 @@
 @import "src/assets/colors";
 .container {
   width: 1120px;
-  height: 216px;
+  min-height: 216px;
   display: flex;
   flex-direction: column;
 }
@@ -16,6 +16,9 @@
   font-size: 16px;
   line-height: 24px;
   color: $secondary;
+}
+.darkHome{
+  color: $white;
 }
 .post , .symbolSl{
   font-weight: 400;
@@ -88,4 +91,10 @@
   font-weight: 600;
   font-size: 18px;
   color: $secondary;
+}
+.darkTitle{
+  color: $white;
+}
+.darkText{
+  color: $white;
 }

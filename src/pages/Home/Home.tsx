@@ -6,6 +6,11 @@ import CardsList from "../../components/CardsList";
 import { CardType } from "../../components/Card";
 import { TabsNames } from "../../components/Tabs/type";
 import PostPage from "../PagePost";
+import classNames from "classnames";
+import {Theme, useThemeContext} from "../../context/Theme/Context";
+import ThemeSwitcher from "../../components/ThemeSwitcher";
+import SingIn from "../PageSingIn";
+import Success from "../PageSuccess";
 
 const TABS_LIST = [
   {
@@ -193,21 +198,29 @@ const Home = () => {
   const onTabClick = (key: TabsNames) => setActiveTab(key);
 
 
+  const {theme} =useThemeContext()
+
+
   const [cardsList, setCardsList] = useState<CardType[]>([]);
   useEffect(() => {
     setCardsList(MOCK_ARRAY);
   }, [MOCK_ARRAY]);
 
+
+
   return (
-    <div>
+    <div
+      className={classNames(styles.container, {
+        [styles.darkContainer]: theme === Theme.Dark,
+      })}
+    >
       <Title title={"Blog"} />
-      <Tabs
-        tabsList={TABS_LIST}
-        activeTab={activeTab}
-        onClick={onTabClick}
-      />
+      <Tabs tabsList={TABS_LIST} activeTab={activeTab} onClick={onTabClick} />
       <CardsList cardsList={cardsList} />
       <PostPage page={MOCK_PAGE} />
+      <ThemeSwitcher/>
+      <SingIn/>
+      <Success/>
     </div>
   );
 };

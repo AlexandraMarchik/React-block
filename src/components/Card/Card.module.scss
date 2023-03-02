@@ -1,7 +1,5 @@
 @import "./src/assets/colors";
 
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -91,4 +89,15 @@
 }
 .smallInfoContainer {
   gap: 24px;
+}
+.darkTitle {
+  color: $white;
+}
+.darkIconContainer {
+  div > svg > path {
+    fill: $white;
+  }
+}
+.darkContainer {
+  border-bottom-color: $gray;
 }
