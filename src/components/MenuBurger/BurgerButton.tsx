@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState,FC } from "react";
 import styles from "./BurgerButton.module.scss";
 import Button from "../Button";
 import { ButtonType } from "../Button/Button";
 import { CloseIcon, OpenedMenu } from "../../assets/icons";
 
-const MenuBurger = () => {
-  const [isOpened, setOpened] = useState(false);
-  const onButtonClick = () => {
-    return setOpened(!isOpened);
-  };
+
+type MenuButtonProps = {
+  isOpened: boolean;
+  onButtonClick: () => void;
+}
+const MenuBurger: FC <MenuButtonProps>= ({isOpened, onButtonClick}) => {
+
   return (
     <Button
       className={styles.btn}

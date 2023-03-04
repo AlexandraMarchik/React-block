@@ -4,17 +4,21 @@ import MenuBurger from "../MenuBurger";
 
 type UserProps = {
   userName: string;
+  className?: string
 };
 
-const User: FC<UserProps> = ({ userName }) => {
+const User: FC<UserProps> = ({ userName,className }) => {
   return (
     <div className={styles.userBlock}>
-        <MenuBurger/>
-
       <div className={styles.user}>
-          <div className={styles.userLetter}>
-              {userName.split(" ").map((word: string) => word[0]).join('')}
-          </div> {userName}</div>
+        <div className={styles.userLetter}>
+          {userName
+            .split(" ")
+            .map((word: string) => word[0])
+            .join("")}
+        </div>{" "}
+        {userName}
+      </div>
     </div>
   );
 };

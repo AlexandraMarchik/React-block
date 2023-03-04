@@ -1,6 +1,11 @@
 @import "src/assets/colors";
 
 .btn {
+  height: 84px;
+  width: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover{
     background-color: $primary;
   }

@@ -1,16 +1,20 @@
 import React from "react";
-import styles from "./Success.module.scss";
+import styles from "./Confirm.module.scss";
 import Title from "../../components/Title";
 import classNames from "classnames";
 import Button from "../../components/Button";
 import { ButtonType } from "../../components/Button/Button";
 import { Theme, useThemeContext } from "../../context/Theme/Context";
-import { RoutesList } from "../Router";
-import { NavLink } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {RoutesList} from "../Router";
 
-const Success = () => {
+const Confirm = () => {
   const { theme } = useThemeContext();
   const isDark = theme === Theme.Dark;
+  const navigate = useNavigate();
+    const onHomeButtonClick = () => {
+        navigate(RoutesList.Home);
+    };
 
   return (
     <div>
@@ -19,8 +23,7 @@ const Success = () => {
           [styles.containerDark]: isDark,
         })}
       >
-        <NavLink
-          to={RoutesList.Home}
+        <NavLink to={RoutesList.Home}
           className={classNames(styles.backHome, {
             [styles.backHomeDark]: isDark,
           })}
@@ -28,7 +31,7 @@ const Success = () => {
           Back to home
         </NavLink>
         <div className={classNames(styles.title)}>
-          <Title title={"Success"} />
+          <Title title={"Registration Confirmation"} />
         </div>
         <div className={styles.wrapper}>
           <div
@@ -36,12 +39,13 @@ const Success = () => {
               [styles.emailTextDark]: isDark,
             })}
           >
-            <div>Email confirmed.</div>
-            Your registration is now completed
+            {" "}
+            Please activate your account with the activation link in the email
+            example@gmail.com. Please, check your email
             <div className={styles.button}>
               <Button
-                title={"Sign In"}
-                onClick={() => {}}
+                title={"Go to home"}
+                onClick={onHomeButtonClick}
                 type={ButtonType.Primary}
               />
             </div>
@@ -52,4 +56,4 @@ const Success = () => {
   );
 };
 
-export default Success;
+export default Confirm;
