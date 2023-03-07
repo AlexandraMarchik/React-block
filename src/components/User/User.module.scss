@@ -3,13 +3,10 @@
 .userBlock {
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  background-color: $primary;
   justify-content: space-between;
 }
 .user {
   @include user();
-  padding: 16px 20px;
   display: flex;
   align-items: center;
 }

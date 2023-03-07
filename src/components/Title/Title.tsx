@@ -10,13 +10,13 @@ type TitleProps = {
 const Title: FC<TitleProps> = ({ title }) => {
   const { theme } = useThemeContext();
   return (
-    <h1
+    <div
       className={classNames(styles.title, {
         [styles.darkTittle]: theme === Theme.Dark,
       })}
     >
       {title}
-    </h1>
+    </div>
   );
 };
 

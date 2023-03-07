@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Home.module.scss";
 import Title from "../../components/Title";
 import Tabs from "../../components/Tabs";
 import CardsList from "../../components/CardsList";
@@ -9,7 +8,7 @@ import PostPage from "../PagePost";
 import classNames from "classnames";
 import {Theme, useThemeContext} from "../../context/Theme/Context";
 import ThemeSwitcher from "../../components/ThemeSwitcher";
-import SingIn from "../PageSingIn";
+import SingIn from "../PageSignIn";
 import Success from "../PageSuccess";
 
 const TABS_LIST = [
@@ -209,18 +208,12 @@ const Home = () => {
 
 
   return (
-    <div
-      className={classNames(styles.container, {
-        [styles.darkContainer]: theme === Theme.Dark,
-      })}
-    >
+    <div>
       <Title title={"Blog"} />
       <Tabs tabsList={TABS_LIST} activeTab={activeTab} onClick={onTabClick} />
       <CardsList cardsList={cardsList} />
-      <PostPage page={MOCK_PAGE} />
-      <ThemeSwitcher/>
-      <SingIn/>
-      <Success/>
+      {/*<PostPage page={MOCK_PAGE} />*/}
+
     </div>
   );
 };
