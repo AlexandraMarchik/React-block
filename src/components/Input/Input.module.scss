@@ -16,6 +16,8 @@ margin-bottom: 20px;
   width: 544px;
   height: 56px;
   border: none;
+  padding: 18px 20px;
+  box-sizing: border-box;
   &:focus {
     outline: none;
     border: 2px solid $medium;
